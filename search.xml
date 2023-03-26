@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试Markdown文档</title>
-    <url>/2023/02/14/test-my-site/</url>
-    <content><![CDATA[<h1 id="Atx式标题"><a href="#Atx式标题" class="headerlink" title="Atx式标题"></a>Atx式标题</h1><h2 id="这是一段代码块"><a href="#这是一段代码块" class="headerlink" title="这是一段代码块"></a>这是一段代码块</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hellow world\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- <span id="more"></span>
-<p><em>斜体1</em><br><em>斜体2</em></p>
-<h2 id="Setext式标题"><a href="#Setext式标题" class="headerlink" title="Setext式标题"></a>Setext式标题</h2><hr>
-<p>上面和下面都是分割线</p>
-<hr>
-<p><strong>加粗1</strong><br><strong>加粗2</strong></p>
-<p>要在一行中高亮一段代码使用<code>Object()</code></p>
-<p>链接使用 <a href="https://whatmus.github.io/">https://whatmus.github.io</a></p>
-<p>行内插入图片<img src="/images/seagull.png" alt="图片裂了"></p>
-<p>\是转义符，方便输入符号</p>
-<p><a href="https://whatmus.github.io/">链接本博客</a></p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2023/02/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -64,6 +40,30 @@
       <tags>
         <tag>C#</tag>
         <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试Markdown文档</title>
+    <url>/2023/02/14/test-my-site/</url>
+    <content><![CDATA[<h1 id="Atx式标题"><a href="#Atx式标题" class="headerlink" title="Atx式标题"></a>Atx式标题</h1><h2 id="这是一段代码块"><a href="#这是一段代码块" class="headerlink" title="这是一段代码块"></a>这是一段代码块</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hellow world\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <span id="more"></span>
+<p><em>斜体1</em><br><em>斜体2</em></p>
+<h2 id="Setext式标题"><a href="#Setext式标题" class="headerlink" title="Setext式标题"></a>Setext式标题</h2><hr>
+<p>上面和下面都是分割线</p>
+<hr>
+<p><strong>加粗1</strong><br><strong>加粗2</strong></p>
+<p>要在一行中高亮一段代码使用<code>Object()</code></p>
+<p>链接使用 <a href="https://whatmus.github.io/">https://whatmus.github.io</a></p>
+<p>行内插入图片<img src="/images/seagull.png" alt="图片裂了"></p>
+<p>\是转义符，方便输入符号</p>
+<p><a href="https://whatmus.github.io/">链接本博客</a></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>

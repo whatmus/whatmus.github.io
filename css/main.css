@@ -1744,10 +1744,6 @@ pre code {
   top: 0;
   width: 100%;
 }
-.post-body a {
-  color: #8080c9;
-  border-bottom: 1px solid #4949a8;
-}
 .post-body a:hover {
   color: #b86262;
   border-bottom: 1px solid #9e4e4e;
@@ -2026,7 +2022,6 @@ pre code {
   list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 .category-all-page .category-list-item {
   margin: 5px 10px;
@@ -2497,7 +2492,7 @@ mjx-container[display='true'] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #afd5ab;
+  background: #91797f;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
