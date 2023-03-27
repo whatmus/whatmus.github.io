@@ -6,7 +6,7 @@
   <link href="https://whatmus.github.io/atom.xml" rel="self"/>
   
   <link href="https://whatmus.github.io/"/>
-  <updated>2023-03-26T16:12:17.386Z</updated>
+  <updated>2023-03-27T15:39:14.592Z</updated>
   <id>https://whatmus.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虚拟机安装Ubuntu22.04LTS</title>
+    <link href="https://whatmus.github.io/2023/03/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Ubuntu22-04LTS/"/>
+    <id>https://whatmus.github.io/2023/03/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Ubuntu22-04LTS/</id>
+    <published>2023-03-27T15:32:49.000Z</published>
+    <updated>2023-03-27T15:39:14.592Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h1><h2 id="一、下载系统镜像"><a href="#一、下载系统镜像" class="headerlink" title="一、下载系统镜像"></a>一、下载系统镜像</h2><p><a href="https://cn.ubuntu.com/desktop">Ubuntu桌面系统 | Ubuntu</a></p><p>前往官网下载Ubuntu系统，我这边选择的是Ubuntu22.04.2 LTS桌面版</p><h2 id="二、新建虚拟机"><a href="#二、新建虚拟机" class="headerlink" title="二、新建虚拟机"></a>二、新建虚拟机</h2><p>我将在VMware虚拟机里面安装</p><span id="more"></span><ol><li>新建虚拟机，选择自定义</li><li>硬件兼容性选择Workstation，版本随意，我选择16.x</li><li>选择稍后安装操作系统</li><li>操作系统选择Linux，版本Ubuntu 64位</li><li>修改虚拟机名称和位置，随意</li><li>处理器内核和内存，1处理器2核，内存4G，因为要装图形界面</li><li>网络类型设为桥接模式，方便外部访问Ubuntu内的服务器</li><li>IO控制器选择SAS接口，硬盘使用SAS兼容的SATA硬盘</li><li>创建新虚拟磁盘</li><li>空间给够60G，就是因为之前给的太小了才重新安装一遍，有了图形界面后硬盘扩容会很方便，我习惯将虚拟磁盘存储为单个文件</li><li>选择磁盘存放的位置，不要放到C盘或者系统盘里面了</li><li>虚拟机新建完成，不要马上开启虚拟机，编辑虚拟机设置，移除不需要的打印机，将CD&#x2F;DVD改成使用ISO映像文件，选择第一步下载的镜像</li><li>修改完成后点击确定应用更改，然后开启虚拟机</li></ol><h2 id="三、安装Ubuntu"><a href="#三、安装Ubuntu" class="headerlink" title="三、安装Ubuntu"></a>三、安装Ubuntu</h2><ol><li>选择Try or Install Ubuntu，如果有显卡驱动等问题，可以选择Ubuntu (safe graphics) 禁用部分驱动执行安装</li><li>欢迎页面，选择English英文，然后点击Install Ubuntu，英文能减少系统以后出bug的几率，中文可以以后再改，键盘选择美式键盘</li><li>由于我主要将Ubuntu安装服务器，所以选择Minimal Installation，最小安装，其他的不用动</li><li>安装程序会检查硬盘中是否存在系统，由于是空盘所以选择Erase disk and install Ubuntu，高级选项里面还可以使用LVM或者ZFS的文件系统格式安装，不过这里我们选择None</li><li>点击Insatll Now，弹出提示确认更改磁盘为ESP、ext4，选择Continue</li><li>选择时区，我这边选择香港，点击继续</li><li>Your name：使用者名称，随便填；Computer’s name：计算机名，简单有辨识度，Ubuntu22LTS，生产环境不建议将系统版本暴露，有安全风险；然后用户名密码设好好记住；嫌登录要输密码麻烦可以选Log in automatically；user Active Directory启用域服务不要勾选</li><li>安装完成后选择重启，提示去除安装介质，关闭虚拟机电源，然后编辑虚拟机设置将CD&#x2F;DVD改回使用物理驱动器，开启虚拟机</li></ol><h2 id="四、Ubuntu设置"><a href="#四、Ubuntu设置" class="headerlink" title="四、Ubuntu设置"></a>四、Ubuntu设置</h2><ol><li>提示更新软件，进入设置，将Updates的自动检查更新改为一周一次</li><li>选择Ubuntu Software选项卡，将Download from改为国内服务器，我这里选择清华，点击Close，Revert是还原重置选项，弹出提示，选择reload重新加载网络</li><li>提示登录线上同步用户，这里我们跳过；推荐Ubuntu Pro，选择skip for now然后下一步</li><li>是否发送系统信息到官方，我们选择不发送，下一步</li><li>Privacy 是否允许应用获取你的地理位置，不开，下一步</li><li>Done，结束</li><li>在Dispalys里将分辨率放大一点，然后在power里面将Screen Blank改为Never</li><li>在设置的时候遇到了设置界面未响应卡死的问题，强制关闭后再打开还是不行，右键桌面运行终端，<code>init 3</code>关闭图形界面，登录后<code>init 5</code>开启图形界面，恢复正常</li><li>网络设置里面将IP改为手动固定IP，方便后面进行远程访问</li><li>打开终端运行命令<code>sudo apt install net-tools</code>安装网络工具，方便使用ifconfig查看IP</li></ol><h2 id="五、配置SSH远程连接"><a href="#五、配置SSH远程连接" class="headerlink" title="五、配置SSH远程连接"></a>五、配置SSH远程连接</h2><ul><li><code>sudo apt update</code>  和<code>sudo apt upgrade</code>将apt下载源更新一下</li><li><code>sudo apt install openssh-server</code> 安装ssh服务器，openssh是目前最流行的</li><li>此时遇到问题，<code>Pack ‘openssh-server’ has no installation candidate</code>，网上查询后发现有两种原因，1是没有更新apt的下载源；2是文件 &#x2F;etc&#x2F;apt&#x2F;sources.list出现错误</li><li>由于我们前面更新过apt下载源，所以应该是第二个问题，我们前往清华源官网<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></li><li>使用命令替换文件内容</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i <span class="string">&quot;s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br><span class="line">sudo sed -i <span class="string">&quot;s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure><ul><li>失败，更换阿里源，更新apt工具之后，重新执行命令安装ssh服务器，成功。总结，官方的清华源可能有问题。</li><li>执行命令查看ssh服务运行情况，Active表示正在运行</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh status</span><br></pre></td></tr></table></figure><ul><li>将防火墙开放SSH连接</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure><ul><li>此时在管理端打开终端进行ssh连接，提示验证失败，选自y继续连接，会提示输入密码</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名@IP地址或者域名</span><br></pre></td></tr></table></figure><ul><li>提示欢迎然后会发现管理端终端会变成 <code>用户名@计算机名：</code></li></ul><p>结束，接下来可以开始远程安装软件和服务器，可以将Ubuntu的图形界面关闭以节省服务器资源。</p><h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>在服务器重启后，遇到一个问题，ssh提示远程主机的标识已经更改，为了防止中间人攻击，禁止连接。网上说本质上解决办法是将know_hosts文件中的相应的旧条目删除。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -R IP地址  <span class="comment">#用这个命令来清除客户端保留的文件</span></span><br></pre></td></tr></table></figure><p>参考:<br><a href="https://blog.csdn.net/Gao068465/article/details/128299952">windows SSH连接远程主机（虚拟机）提示远程主机标识已更改的解决方法_金陵大掌柜的博客-CSDN博客</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Ubuntu安装&quot;&gt;&lt;a href=&quot;#Ubuntu安装&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu安装&quot;&gt;&lt;/a&gt;Ubuntu安装&lt;/h1&gt;&lt;h2 id=&quot;一、下载系统镜像&quot;&gt;&lt;a href=&quot;#一、下载系统镜像&quot; class=&quot;headerlink&quot; title=&quot;一、下载系统镜像&quot;&gt;&lt;/a&gt;一、下载系统镜像&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://cn.ubuntu.com/desktop&quot;&gt;Ubuntu桌面系统 | Ubuntu&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;前往官网下载Ubuntu系统，我这边选择的是Ubuntu22.04.2 LTS桌面版&lt;/p&gt;
+&lt;h2 id=&quot;二、新建虚拟机&quot;&gt;&lt;a href=&quot;#二、新建虚拟机&quot; class=&quot;headerlink&quot; title=&quot;二、新建虚拟机&quot;&gt;&lt;/a&gt;二、新建虚拟机&lt;/h2&gt;&lt;p&gt;我将在VMware虚拟机里面安装&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="运维" scheme="https://whatmus.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    <category term="Linux" scheme="https://whatmus.github.io/categories/%E8%BF%90%E7%BB%B4/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://whatmus.github.io/categories/%E8%BF%90%E7%BB%B4/Linux/Ubuntu/"/>
+    
+    
+    <category term="Linux" scheme="https://whatmus.github.io/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://whatmus.github.io/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>水仙花数</title>
